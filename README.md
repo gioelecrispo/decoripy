@@ -1,7 +1,6 @@
-# Annotipy
-
-Annotipy provides a well-structured template class for creating Python decorators. It uses inheritance to be efficient
- and simple.
+# Decoripy
+decoripy provides a well-structured template class for creating Python decorators. It uses inheritance to be efficient 
+and simple.
 
 ## Table of contents
 1. Motivation
@@ -11,13 +10,13 @@ Annotipy provides a well-structured template class for creating Python decorator
 With decoripy, writing a decorator becomes very easy. It aims to improve the Python language expressiveness by 
 enhancing a very powerful Python mechanism.
 
-Annotipy provides a template built upon the basic wrapping of a function, hiding the implementation details, and
+Decoripy provides a template built upon the basic wrapping of a function, hiding the implementation details, and
 providing some useful advantages:
  - no distinction between decorator with or without arguments has to be done;
  - a temporal based execution is provided. 
 
-### Annotation arguments
-With decoripy you could create annotation with or without arguments with no pain.
+### Decorator arguments
+With decoripy you could create decorator with or without arguments with no pain.
 In standard Python you should handle the arguments passed to the decorator, because, in this case, the wrapper 
 function does not take the function as a the first argument.
 So you could do something like this:
@@ -45,22 +44,22 @@ def function_to_decorate(var):
     pass
 ```
 and you have not to change your code. 
-The unnamed arguments (*args) passed to the decoration can be accessed by using the positional order (For example, 
+The unnamed arguments (```*args```) passed to the decorator can be accessed by using the positional order (For example, 
 the first parameters could be taken in this way: ```first_arg = args[0]```, see Usage).
-The named arguments (**kwargs) passed to the decoration are parsed and can be accessed by their name (For example, 
+The named arguments (```**kwargs```) passed to the decorator are parsed and can be accessed by their name (For example, 
 timeout could be used in the implementation code in this way: ```self.timeout```, see Usage).
 
 
 ### Temporal based execution
 The decoripy template is built to provide temporal based execution:
- - you could execute a pre-operation **before** the annotated function is executed;
- - you could do some operation **while** the annotated function is executed;
- - you could execute a post-operation **after** the annotation function is executed.
+ - you could execute a pre-operation **before** the decorated function is executed;
+ - you could do some operation **while** the decorated function is executed;
+ - you could execute a post-operation **after** the decorated function is executed.
 
 In this way you can control the execution flow of the decorated function.
 
-### Nested annotation
-You could nest more annotation. The order respects the writing order, so:
+### Nested decorator
+You could nest more decorator. The order respects the writing order, so:
  ```python
 @First(timeout=3000)
 @Second

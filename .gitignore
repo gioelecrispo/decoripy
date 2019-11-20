@@ -59,3 +59,6 @@ coverage.xml
 
 # Sphinx documentation
 docs/build/
+
+# Remove rst (keep only .md)
+README.rst
