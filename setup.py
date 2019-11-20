@@ -19,6 +19,7 @@ def convert_to_m2r(file_name):
     try:
         os.remove(os.path.join(os.path.dirname(__file__), rst_file))
     finally:
+        os.system("pip install m2r")
         os.system("m2r " + os.path.join(os.path.dirname(__file__), file_name))
         return rst_file
 
