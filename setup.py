@@ -14,16 +14,6 @@ def read_file(file_name):
     return open(os.path.join(os.path.dirname(__file__), file_name)).read()
 
 
-def convert_to_m2r(file_name):
-    rst_file = file_name.split('.')[0] + ".rst"
-    try:
-        os.remove(os.path.join(os.path.dirname(__file__), rst_file))
-    finally:
-        os.system("pip install m2r")
-        os.system("m2r " + os.path.join(os.path.dirname(__file__), file_name))
-        return rst_file
-
-
 def upload_to_pypi():
     os.system("twine upload dist/*")
 
@@ -33,7 +23,7 @@ clean_dist()
 
 setup(
     name='decoripy',
-    version="0.0.2",
+    version="0.0.3",
     author='Gioele Crispo',
     author_email='crispogioele@gmail.com',
     package_dir={'decoripy': 'decoripy'},
@@ -44,9 +34,10 @@ setup(
     license_file='LICENSE',
     platform='any',
     description='Decoripy helps you making better decorators.',
-    long_description=read_file(convert_to_m2r('README.md')),
+    long_description=read_file('README.md'),
+    long_description_content_type='text/markdown',
     install_requires=read_file('requirements.txt').splitlines(),
-    python_requires='>=3',
+    python_requires='>=2.7',
     package_data={
         # '': ['package_data.dat'],
     },
@@ -55,7 +46,6 @@ setup(
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.4",

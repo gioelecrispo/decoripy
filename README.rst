@@ -2,8 +2,24 @@
 Decoripy
 ========
 
-decoripy provides a well-structured template class for creating Python decorators. It uses inheritance to be efficient
- and simple.
+decoripy provides a well-structured template class for creating Python decorators. It uses inheritance to be efficient 
+and simple.
+
+
+.. image:: https://img.shields.io/badge/python-2.7%2C%203.5%2C%203.6%2C%203.7-blue.svg
+   :target: https://img.shields.io/badge/python-2.7%2C%203.5%2C%203.6%2C%203.7-blue.svg
+   :alt: Python 2.7, 3.5, 3.6, 3.7
+
+
+.. image:: https://badge.fury.io/py/instabot.svg
+   :target: https://badge.fury.io/py/instabot
+   :alt: PyPI version
+
+
+.. image:: https://travis-ci.org/instagrambot/instabot.svg?branch=master
+   :target: https://travis-ci.org/instagrambot/instabot
+   :alt: Build Status
+
 
 Table of contents
 -----------------
