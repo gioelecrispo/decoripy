@@ -1,9 +1,11 @@
 from functools import partial
-from abc import ABC, abstractmethod
+from abc import ABCMeta
 
 
-class AbstractDecorator(ABC):
+class AbstractDecorator:
     """ AbstractDecorator is """
+
+    __metaclass__ = ABCMeta
 
     def __init__(self, *args, **kwargs):
         if args and callable(args[0]):
@@ -24,25 +26,19 @@ class AbstractDecorator(ABC):
             self.function = args[0]
 
             def wrapper(*func_args, **func_kwargs):
-                self.before_result = self.__do_before__(*func_args, **func_kwargs)
-                self.execution_result = self.__do__(*func_args, **func_kwargs)
-                self.after_result = self.__do_after__(*func_args, **func_kwargs)
-                return self.execution_result
+                return self.__execute_function__(*func_args, **func_kwargs)
             return wrapper
         else:
-            self.before_result = self.__do_before__(*args, **kwargs)
-            self.execution_result = self.__do__(*args, **kwargs)
-            self.after_result = self.__do_after__(*args, **kwargs)
-            return self.execution_result
+            return self.__execute_function__(*args, **kwargs)
 
     def __get__(self, instance, owner):
         return partial(self.__call__, instance)
 
-    def __get_param__(self, param_name, default_value):
-        try:
-            setattr(self, param_name, self.kwargs[param_name])
-        except KeyError:
-            setattr(self, param_name, default_value)
+    def __execute_function__(self, *func_args, **func_kwargs):
+        self.before_result = self.__do_before__(*func_args, **func_kwargs)
+        self.execution_result = self.__do__(*func_args, **func_kwargs)
+        self.after_result = self.__do_after__(*func_args, **func_kwargs)
+        return self.execution_result
 
     def __set_kwargs__(self):
         for key, value in self.kwargs.items():
