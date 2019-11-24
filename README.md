@@ -2,7 +2,7 @@
 decoripy provides a well-structured template class for creating Python decorators. It uses inheritance to be efficient 
 and simple.
 
-![Python 2.7, 3.5, 3.6, 3.7](https://img.shields.io/badge/python-%203.3%2C%203.4%2C%203.5%2C%203.6%2C%203.7-blue.svg)
+![Python 2.7, 3.4, 3.5, 3.6, 3.7, 3.8](https://img.shields.io/badge/python-%202.7%2C%203.4%2C%203.5%2C%203.6%2C%203.7%2C%203.8-blue.svg)
 [![PyPI version](https://badge.fury.io/py/decoripy.svg)](https://badge.fury.io/py/decoripy)
 [![Build Status](https://travis-ci.org/gioelecrispo/decoripy.svg?branch=master)](https://travis-ci.org/gioelecrispo/decoripy)
 [![codecov](https://codecov.io/gh/gioelecrispo/decoripy/branch/master/graph/badge.svg)](https://codecov.io/gh/gioelecrispo/decoripy)
